@@ -1,0 +1,24 @@
+if [[ $(sudo docker ps -q) ]]; then
+
+echo 'Stopping all running containers:'
+
+sudo docker stop $(sudo docker ps -q)
+
+else
+
+echo 'No running docker containers.'
+
+fi
+
+if [[ $(sudo docker ps -a -q) ]]; then
+
+echo 'Removing all containers: '
+sudo docker rm $(sudo docker ps -a -q)
+
+else 
+
+echo 'No docker containers to remove.'
+
+fi
+
+echo 'Done. Respect from bisha.'
